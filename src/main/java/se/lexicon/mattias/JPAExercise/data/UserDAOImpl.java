@@ -39,7 +39,8 @@ public class UserDAOImpl implements UserDAO{
     public List<AppUser> findAll() {
         // Ask Question to DB -> Why S?
         Query query = entityManager.createQuery("SELECT s FROM AppUser s");
-        return null;
+        List<AppUser> allUsers = query.getResultList();
+        return allUsers;
     }
 
     @Override
