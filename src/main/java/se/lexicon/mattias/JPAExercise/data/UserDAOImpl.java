@@ -37,7 +37,7 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public List<AppUser> findAll() {
-        // Ask Question to DB -> Why S?
+        // Ask Question to DB -> Why S variable?
         Query query = entityManager.createQuery("SELECT s FROM AppUser s");
         List<AppUser> allUsers = query.getResultList();
         return allUsers;
@@ -59,6 +59,7 @@ public class UserDAOImpl implements UserDAO{
 
     @Override
     public boolean delete(AppUser appUser) {
+
         Optional<AppUser> user = findById(appUser.getId());
         if(user != null) {
             entityManager.remove(user);
@@ -66,4 +67,5 @@ public class UserDAOImpl implements UserDAO{
         }
         return false;
     }
+
 }
